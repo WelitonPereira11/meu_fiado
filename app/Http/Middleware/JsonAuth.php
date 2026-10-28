@@ -1,0 +1,1 @@
+<?php namespace App\Http\Middleware; use Closure; use Illuminate\Http\Request; class JsonAuth { public function handle(Request $request,Closure $next):mixed { return session()->has('loja_id') ? $next($request) : redirect()->route('login')->with('error','Entre para acessar sua loja.'); } }
